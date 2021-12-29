@@ -1,0 +1,95 @@
+.informacion--position {
+    margin: 10% 0%;
+}
+
+.informacion--layout {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.informacion__perfil--size {
+    background-color: $color2;
+    @include size(30%, 28rem);
+}
+
+.informacion__form--size {
+    @include size(50%, auto);
+}
+
+.informacion__form--layout {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.form__label--text {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.form__campo--size {
+    @include size(100%, 2.5rem);
+}
+
+.form__campo--border {
+    border: none;
+    border-bottom: .2rem solid black;
+    font-size: 1.3rem;
+}
+
+.form__campo--bg {
+    background-color: transparent;
+}
+
+.form__enviar--size{
+    @include size(100%, 3rem)
+}
+
+.form__enviar--bg{
+    background-color: $color3;
+}
+
+.inventario--size {
+    @include size(100%, auto);
+}
+
+.inventario--bg{
+    background-color: $color3;
+}
+
+.inventario--layout{
+    padding: 3% 0%;
+}
+
+.inventario__h2--position {
+    text-align: center;
+    margin-bottom: 2%;
+}
+
+.inventario__acciones--size {
+    @include size(95%, 5rem);
+}
+
+.inventario__acciones--position{
+    margin: 0% auto;
+}
+
+.inventario__acciones--border{
+    border-bottom: .2rem solid black;
+}
+
+.inventario__acciones--bg{
+    background-color: $color2;
+}
+
+.inventario__contenedor--size{
+    @include size(95%, 34rem);
+}
+
+.inventario__contenedor--position{
+    @extend .inventario__acciones--position;
+}
+
+.inventario__contenedor--bg{
+    @extend .inventario__acciones--bg;
+}

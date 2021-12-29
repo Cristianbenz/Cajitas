@@ -1,0 +1,84 @@
+$fondoPremios:(
+    comun: radial-gradient(circle, rgba(39,185,255,1) 24%, rgba(0,151,255,1) 61%, rgba(61,124,255,1) 100%),
+    raro: radial-gradient(circle, rgba(206,51,230,1) 20%, rgba(166,0,255,1) 61%, rgba(197,61,255,1) 100%),
+    especial: radial-gradient(circle, rgba(254,207,54,1) 24%, rgba(255,166,0,1) 61%, rgba(255,122,61,1) 100%),
+    unico: radial-gradient(circle, rgba(243,254,54,1) 38%, rgba(169,255,0,1) 74%, rgba(179,255,61,1) 100%)
+);
+
+.cajas--size {
+    @include size(95%, auto)
+}
+
+.cajas--position {
+    margin: 3% auto;
+}
+
+.cajas--border {
+    box-shadow: 0 0 .7rem rgb(146, 146, 113);
+    border-radius: 1rem;
+}
+
+.cajas--bg {
+    background-color: $color2;
+}
+
+.cajas--layout {
+    padding: 3% 5%;
+}
+
+.cajas__h2--position {
+    text-align: center;
+}
+
+.cajas__inner--layout {
+    display: flex;
+    padding: 3% 0%;
+}
+
+.inner__objects--size {
+    @include size(100%, 13rem);
+    background-color: aqua;
+}
+
+.inner__objects--position {
+    margin: .2% 0%;
+}
+
+.inner__objects--border {
+    border: .3rem solid whitesmoke;
+}
+
+.inner__objects--padding {
+    padding: 3.5%;
+}
+
+@each $calidad, $bgColor in $fondoPremios {
+    .inner__objects--#{$calidad} {
+        background: $bgColor;
+    }
+}
+
+.object__img--size{
+    @include size(100%, 100%);
+}
+
+.cajas__boton--width {
+    width: 15%;
+}
+
+.cajas__boton--position {
+    margin: 0% 42%;
+}
+
+.cajas__boton--border {
+    border: none;
+}
+
+.cajas__boton--text {
+    font-size: 1.5rem;
+    padding: .6rem;
+}
+
+.cajas__boton--bg {
+    background-color: $color3;
+}

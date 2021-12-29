@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400&display=swap');
+
+$font1: 'Mulish', sans-serif;
+
+$color1: rgb(223, 223, 196);
+$color2: rgb(199, 207, 183);
+$color3: rgb(157, 173, 127);
+$color4: rgb(85, 113, 116);
+
+@mixin size($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+* {
+    margin: 0rem;
+    padding: 0rem;
+    box-sizing: border-box;
+    font-family: $font1;
+}
+
+body{
+    background-color: $color1;
+}
+
+@import "./_login.scss";
+@import "./_header.scss";
+@import "./_cajas.scss";
+@import "./_inventario.scss";

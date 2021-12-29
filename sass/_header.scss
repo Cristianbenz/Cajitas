@@ -1,0 +1,59 @@
+.header--bg{
+    background-color: $color4;
+}
+
+.header--layout{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.header__buscador--position{
+    margin-left: 20%;
+}
+
+.buscador__input--height{
+    @include size(73%, 1.9rem);
+}
+
+.buscador__boton--bg{
+    background-color: $color3;
+}
+
+.buscador__boton--border{
+    border: none;
+    border: 1.2px solid $color3;
+}
+
+.buscador__boton--padding{
+    padding: 2%;
+}
+
+.header__menu--layout{
+    display: flex;
+    align-items: center;
+}
+
+.menu__items--position{
+    margin-left: 1.5rem;
+    display: inline-block;
+}
+
+.items__text--style{
+    text-decoration: none;
+    color: $color1;
+    font-size: 1.2rem;
+}
+
+.items__points--layout{
+    display: flex;
+}
+
+.points__valor--text{
+    color: $color3;
+}
+
+.points__btn--position{
+    margin-left: .8rem;
+}

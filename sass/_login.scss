@@ -1,0 +1,47 @@
+.headerLogin--layout{
+    display: flex;
+    justify-content: center;
+}
+
+.login--size{
+    @include size(60%, 25rem)
+}
+
+.login--position{
+    margin: 7.5% auto;
+}
+
+.login--bg{
+    background-color: $color3;
+}
+
+.login__form--height{
+    height: 100%;
+}
+
+.login__form--layout{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 3% 15%;
+}
+
+.login__label--text{
+    font-size: 1.6rem
+}
+
+.login__entrada--size{
+    @include size(100%, 2.7rem)
+}
+
+.login__entrada--text{
+    font-size: 1.3rem;
+}
+
+.login__boton--size{
+    @include size(90%, 3.5rem);
+}
+
+.login__boton--position{
+    margin: 0% auto;
+}
