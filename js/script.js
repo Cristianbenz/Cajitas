@@ -93,6 +93,7 @@ const CAJAS = [CAJA1, CAJA2, CAJA3];
 //INVENTARIO
 let INVENTARIO = [];
 
+
 //DATOS DE INGRESO
 let puntos;
 const DATOS = () => {
@@ -146,16 +147,21 @@ const VENDER_OBJETO_GANADO = (articulo) => {
 }
 
 //VER INVENTARIO?
-/*const VER_INVENTARIO = () => {
+
+const VER_INVENTARIO = () => {
     const VER_OBJETOS = confirm("¿Quiere ver su inventario?");
+    let lista = "Su inventario contiene:\n";
+    for (i = 0; i < INVENTARIO.length; i++){
+        lista += INVENTARIO[i].name + "\n"
+    }
     switch (VER_OBJETOS) {
         case true:
-            alert(MOSTRAR_FILTRO);
+            alert(lista);
+            break;
+        default:
             break;
     }
 }
-
-const MOSTRAR_FILTRO = INVENTARIO.filter(premio => premio.name);*/
 
 //VOLVER A JUGAR?
 const REROLL = () => {
@@ -170,6 +176,7 @@ const REROLL = () => {
 const INIT = () => {
     const PREMIO_GANADO = JUEGO();
     VENDER_OBJETO_GANADO(PREMIO_GANADO);
+    VER_INVENTARIO();
     REROLL();
 }
 DATOS();
