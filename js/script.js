@@ -1,22 +1,26 @@
-class Login {
+//Pedir user y edad, registrarlo si +18 ✅
+//Ingresar fondos ✅
+//Jugar segun puntos disponibles
+//Dar objeto aleatorio
+//Preguntar si vender o no
+//Si lo guarda crear inventario
+
+//CLASES
+class Usuario {
     constructor(username, edad) {
         this.username = username;
         this.edad = edad;
     }
-    acceso() {
-        if (this.edad >= 18) {
-            alert("¡Disfrute del juego!");
-            return true;
+    validacion() {
+        if (this.edad >= 18 && this.username != "") {
+            window.location.href = "index.html";
+            const GUARDAR_ACCESO = sessionStorage.setItem("acceso", true);
         } else {
-            alert("Acceso denegado");
-            DATOS();
+            alert("Edad o usuario no valido")
         }
     }
-    fondos() {
-        if (this.acceso()) {
-            const PUNTOS_INGRESADOS = prompt("¿Cuantos puntos desea ingresar?");
-            return parseFloat(PUNTOS_INGRESADOS);
-        }
+    guardarDatos() {
+        const GUARDAR_USERNAME = sessionStorage.setItem("username", this.username);
     }
 }
 
@@ -55,6 +59,7 @@ class Caja {
     }
     descuentoDePuntos() {
         puntos = puntos - this.price;
+        ACTUALIZAR_FONDOS();
         alert("Ahora tienes: " + (puntos) + " puntos.");
     }
 }
@@ -91,43 +96,88 @@ const CAJA3 = new Caja("Caja 3", 10000, SMART, PS5, PC, OBJETO_NO_DEFINIDO, AUTO
 const CAJAS = [CAJA1, CAJA2, CAJA3];
 
 //INVENTARIO
-let INVENTARIO = [];
+const INVENTARIO = [];
 
-
-//DATOS DE INGRESO
-let puntos;
+//LOGIN
 const DATOS = () => {
-    const USERNAME_ENTRADA = prompt("Ingrese usuario");
-    const EDAD_ENTRADA = prompt("Ingrese su edad");
-    while (USERNAME_ENTRADA == "" || EDAD_ENTRADA == 0) {
-        const USERNAME_ENTRADA = prompt("Ingrese usuario");
-        const EDAD_ENTRADA = prompt("Ingrese su edad");
-        const INGRESO = new Login(USERNAME_ENTRADA, EDAD_ENTRADA);
-        puntos = INGRESO.fondos();
-    }
-    const INGRESO = new Login(USERNAME_ENTRADA, EDAD_ENTRADA);
-    puntos = INGRESO.fondos();
+    const USERNAME_INPUT = document.getElementById("username");
+    const AGE_INPUT = document.getElementById("age");
+    const NUEVO_USUARIO = new Usuario(USERNAME_INPUT.value, AGE_INPUT.value);
+    NUEVO_USUARIO.validacion();
+    NUEVO_USUARIO.guardarDatos();
 }
 
-//JUEGO
-const JUEGO = () => {
-    const PREGUNTA = prompt("¿Que caja desea abrir?\n" + "1) Caja 1 - $500\n2) Caja 2 - $2000\n3) Caja 3 $10000");
-    let reward;
-    switch (PREGUNTA) {
-        case "1":
-            reward = CAJA1.abrirCaja();
-            CAJA1.descuentoDePuntos();
-            break;
-        case "2":
-            reward = CAJA2.abrirCaja();
-            CAJA2.descuentoDePuntos();
-            break;
-        case "3":
-            reward = CAJA3.abrirCaja();
-            CAJA3.descuentoDePuntos();
-            break;
+const ELIMINAR_LOGIN = () => {
+    const OBTENER_ACCESO = sessionStorage.getItem("acceso");
+    if (JSON.parse(OBTENER_ACCESO)) {
+        const LOGIN_NODE = document.getElementsByClassName("login--node");
+        const BORRAR_LOGIN = LOGIN_NODE[0].parentNode.removeChild(LOGIN_NODE[0]);
+        IMPRIMIR_DATOS();
+        ACTUALIZAR_FONDOS();
+
     }
-    return reward;
+}
+
+const IMPRIMIR_DATOS = () => {
+    const OBTENER_USERNAME = sessionStorage.getItem("username")
+    const MENU_NODE = document.getElementsByClassName("menu--node");
+    const AGREGAR_NODO_LOGIN = document.createElement("article");
+    const IMPRIMIR_INFO = AGREGAR_NODO_LOGIN.innerHTML =
+        `<div class="items__text--style">
+            <p>Usuario: ${OBTENER_USERNAME}</p>
+            <div class="items__points--layout">
+                <p>Puntos: <span id="puntos" class="points__valor--text"> ${PUNTOS_ACTUALIZADOS} </span></p>
+                <button onclick="javascript:AGREGAR_FONDOS()" class="points__btn--position"><img src="./img/mas.png" alt=""></button>
+            </div>
+        </div>`;
+    const AGREGAR_LOGIN = MENU_NODE[0].appendChild(AGREGAR_NODO_LOGIN);
+}
+
+//AGREGAR PUNTOS
+let puntos = 0;
+
+const AGREGAR_FONDOS = () => {
+    const PUNTOS_INGRESADOS = prompt("¿Cuantos puntos quiere ingresar?");
+    puntos += parseInt(PUNTOS_INGRESADOS);
+    ACTUALIZAR_FONDOS();
+}
+
+const ACTUALIZAR_FONDOS = () => {
+    const PUNTOS_NODE = document.getElementById("puntos");
+    const MOSTRAR_PUNTOS = PUNTOS_NODE.innerHTML = `${puntos}`;
+    const NUEVOS_PUNTOS = sessionStorage.setItem("puntos", puntos);
+
+}
+
+//JUEGOS
+const JUEGO1 = () => {
+    if (puntos >= 500) {
+        const PREMIO_OBTENIDO = CAJA1.abrirCaja();
+        CAJA1.descuentoDePuntos();
+        VENDER_OBJETO_GANADO(PREMIO_OBTENIDO);
+    } else {
+        alert("Puntos insuficientes");
+    }
+}
+
+const JUEGO2 = () => {
+    if (puntos >= 2000) {
+        const PREMIO_OBTENIDO = CAJA2.abrirCaja();
+        CAJA2.descuentoDePuntos();
+        VENDER_OBJETO_GANADO(PREMIO_OBTENIDO);
+    } else {
+        alert("Puntos insuficientes");
+    }
+}
+
+const JUEGO3 = () => {
+    if (puntos >= 1000) {
+        const PREMIO_OBTENIDO = CAJA3.abrirCaja();
+        CAJA3.descuentoDePuntos();
+        VENDER_OBJETO_GANADO(PREMIO_OBTENIDO);
+    } else {
+        alert("Puntos insuficientes");
+    }
 
 }
 
@@ -137,47 +187,18 @@ const VENDER_OBJETO_GANADO = (articulo) => {
     switch (VENDER_PREGUNTA) {
         case true:
             puntos = puntos + articulo.price;
+            ACTUALIZAR_FONDOS();
             alert("Vendiste tu " + articulo.name);
             alert("Ahora tienes: " + puntos + " puntos");
             break;
         default:
-            INVENTARIO.push(articulo);
+            const AÑADIR_AL_INVENTARIO = INVENTARIO.push(articulo);
+            const INVENTARIO_AJSON = JSON.stringify(INVENTARIO);
+            const GUARDAR_INVENTARIO = sessionStorage.setItem("inventario", INVENTARIO_AJSON);
             break;
     }
 }
 
-//VER INVENTARIO?
-
-const VER_INVENTARIO = () => {
-    const VER_OBJETOS = confirm("¿Quiere ver su inventario?");
-    let lista = "Su inventario contiene:\n";
-    for (i = 0; i < INVENTARIO.length; i++){
-        lista += INVENTARIO[i].name + "\n"
-    }
-    switch (VER_OBJETOS) {
-        case true:
-            alert(lista);
-            break;
-        default:
-            break;
-    }
-}
-
-//VOLVER A JUGAR?
-const REROLL = () => {
-    const VOLVER_JUGAR = confirm("¿Desea volver a jugar?");
-    if (VOLVER_JUGAR) {
-        INIT();
-    } else {
-        alert("¡Vuelve pronto!");
-    }
-}
-
-const INIT = () => {
-    const PREMIO_GANADO = JUEGO();
-    VENDER_OBJETO_GANADO(PREMIO_GANADO);
-    VER_INVENTARIO();
-    REROLL();
-}
-DATOS();
-INIT();
+const PUNTOS_ACTUALIZADOS = sessionStorage.getItem("puntos");
+puntos += JSON.parse(PUNTOS_ACTUALIZADOS);
+ELIMINAR_LOGIN();
