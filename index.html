@@ -22,10 +22,10 @@
                     value="Buscar">
             </form>
         </section>
-        <section class="header__menu--layout menu--node">
+        <section class="header__menu--layout" id="menuNode">
             <nav class="menu__items--position">
                 <a class="items__text--style" href="./inventario.html">Inventario</a>
-                <a class="items__text--style login--node" href="./login.html">Login</a>
+                <a class="items__text--style" id="loginNode" href="./login.html">Login</a>
             </nav>
         </section>
     </header>
@@ -54,7 +54,9 @@
                     <img class="object__img--size" src="./img/nikos.png" alt="championes air jordans">
                 </li>
             </ul>
-            <button onclick="javascript:JUEGO1()" class="cajas__boton--width cajas__boton--position cajas__boton--border cajas__boton--bo cajas__boton--textrder cajas__boton--bg cajas__boton--text">Girar</button>
+            <button
+                class="cajas__boton--width cajas__boton--position cajas__boton--border cajas__boton--bo cajas__boton--textrder cajas__boton--bg cajas__boton--text"
+                id="game1Button">Girar</button>
         </section>
         <section class="cajas--size cajas--position cajas--bg cajas--border cajas--layout">
             <h2 class="cajas__h2--position">Caja 2</h2>
@@ -80,7 +82,9 @@
                     <img class="object__img--size" src="./img/macbook.png" alt="macbook">
                 </li>
             </ul>
-            <button onclick="javascript:JUEGO2()" class="cajas__boton--width cajas__boton--position cajas__boton--border cajas__boton--bg cajas__boton--text">Girar</button>
+            <button
+                class="cajas__boton--width cajas__boton--position cajas__boton--border cajas__boton--bg cajas__boton--text"
+                id="game2Button">Girar</button>
         </section>
         <section class="cajas--size cajas--position cajas--bg cajas--border cajas--layout">
             <h2 class="cajas__h2--position">Caja 3</h2>
@@ -106,16 +110,28 @@
                     <img class="object__img--size" src="" alt="audi rs7 sportback">
                 </li>
             </ul>
-            <button onclick="javascript:JUEGO3()" class="cajas__boton--width cajas__boton--position cajas__boton--border cajas__boton--bg cajas__boton--text">Girar</button>
+            <button
+                class="cajas__boton--width cajas__boton--position cajas__boton--border cajas__boton--bg cajas__boton--text"
+                id="game3Button">Girar</button>
         </section>
+        <!-- <section class="popup--layout popup--size popup--position popup--bg">
+            
+        </section> -->
     </main>
     <footer>
 
     </footer>
 
 
-
-    <script src="./js/script.js"></script>
+    <script src="./js/components/header.js"></script>
+    <script src="./js/components/points.js"></script>
+    <script src="./js/components/products.js"></script>
+    <script src="./js/components/cases.js"></script>
+    <script src="./js/constants/productsDetails.js"></script>
+    <script src="./js/constants/casesDetails.js"></script>
+    <script src="./js/constants/inventarioArray.js"></script>
+    <script src="./js/simulador.js"></script>
+    
 </body>
 
 </html>

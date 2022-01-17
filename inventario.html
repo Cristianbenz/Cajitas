@@ -22,10 +22,10 @@
                     value="Buscar">
             </form>
         </section>
-        <section class="header__menu--layout menu--node">
+        <section class="header__menu--layout" id="menuNode">
             <nav class="menu__items--position">
                 <a class="items__text--style" href="./inventario.html">Inventario</a>
-                <a class="items__text--style login--node" href="./login.html">Login</a>
+                <a class="items__text--style" id="loginNode" href="./login.html">Login</a>
             </nav>
         </section>
     </header>
@@ -63,8 +63,10 @@
             <article
                 class="inventario__acciones--size inventario__acciones--position inventario__acciones--border inventario__acciones--bg">
                 <!-- BOTONES DE ACCION -->
+                <button id="sellAll">Vender todo</button>
+                <button id="witdraw">Retirar todo</button>
             </article>
-            <article class="inventario__contenedor--size inventario__contenedor--position inventario__contenedor--bg">
+            <article id="inventarioContenedor" class="inventario__contenedor--size inventario__contenedor--position inventario__contenedor--bg">
                 <!-- OBJETOS -->
             </article>
         </section>
@@ -74,7 +76,9 @@
     </footer>
 
 
-    <script src="./js/script.js"></script>
+    <script src="./js/components/header.js"></script>
+    <script src="./js/constants/inventarioArray.js"></script>
+    <script src="./js/inventario.js"></script>
 </body>
 
 </html>

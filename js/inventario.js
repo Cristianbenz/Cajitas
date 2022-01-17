@@ -1,0 +1,1 @@
+const CARGAR_INVENTARIO = new Inventario();

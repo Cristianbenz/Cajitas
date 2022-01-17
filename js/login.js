@@ -1,0 +1,1 @@
+const USUARIO_NUEVO = new Usuario();

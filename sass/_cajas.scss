@@ -82,3 +82,25 @@ $fondoPremios:(
 .cajas__boton--bg {
     background-color: $color3;
 }
+
+.popup--size{
+    @include size(50%, 80%);
+}
+
+.popup--position{
+    position: fixed;
+    top: 10%;
+    left: 25%;
+}
+
+.popup--layout{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 3%;
+    text-align: center;
+}
+
+.popup--bg{
+    background-color: $color4;
+}

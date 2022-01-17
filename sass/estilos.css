@@ -240,6 +240,36 @@ body {
   background-color: #9dad7f;
 }
 
+.popup--size {
+  width: 50%;
+  height: 80%;
+}
+
+.popup--position {
+  position: fixed;
+  top: 10%;
+  left: 25%;
+}
+
+.popup--layout {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 3%;
+  text-align: center;
+}
+
+.popup--bg {
+  background-color: #557174;
+}
+
 .informacion--position {
   margin: 10% 0%;
 }

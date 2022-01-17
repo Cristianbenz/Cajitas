@@ -17,7 +17,7 @@
     </header>
     <main>
         <section class="login--size login--position login--bg">
-            <form class="login__form--height login__form--layout" action="javascript:DATOS()">
+            <form class="login__form--height login__form--layout" id="loginForm">
                 <div>
                     <label class="login__label--text" for="username">Username:</label>
                     <input class="login__entrada--size login__entrada--text" type="text" name="username" id="username">
@@ -26,13 +26,13 @@
                     <label class="login__label--text" for="age">Edad:</label>
                     <input class="login__entrada--size login__entrada--text" type="number" name="age" id="age">
                 </div>
-                <input class="login__boton--size login__boton--position" type="submit" value="Ingresar">
+                <button id="ingreso" class="login__boton--size login__boton--position">Ingresar</button>
             </form>
         </section>
     </main>
 
-
-    <script src="./js/script.js"></script>
+    <script src="./js/components/loginForm.js"></script>
+    <script src="./js/login.js"></script>
 </body>
 
 </html>
