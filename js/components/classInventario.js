@@ -4,16 +4,17 @@ class Inventario{
         this.actualizarInventario();
     }
     actualizarInventario(){
-        const OBTENER_INVENTARIO = sessionStorage.getItem('inventario');
-        const INVENTARIO_JSON = JSON.parse(OBTENER_INVENTARIO);
-        this.imprimirInventario(INVENTARIO_JSON);
+        const OBTENER_INVENTARIO = JSON.parse(sessionStorage.getItem('inventario')) || [];
+        this.imprimirInventario(OBTENER_INVENTARIO);
     }
     imprimirInventario(inventario){
         inventario.forEach((articulo) => {
-            this.contendedor.innerHTML = `
+            this.contendedor.innerHTML += `
             <img src="${articulo.img}">
             ${articulo.price}
             `
         })
     }
 }
+
+let inventario = JSON.parse(sessionStorage.getItem('inventario')) || [];

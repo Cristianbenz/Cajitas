@@ -23,4 +23,4 @@ class Puntos {
     }
 }
 
-let points = sessionStorage.getItem('points') || 0;
+let points = JSON.parse(sessionStorage.getItem('points')) || 0;

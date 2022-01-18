@@ -81,8 +81,9 @@ class Caja {
         document.body.removeChild(POPUP_NODE);
     }
     guardarObjetoGanado(articulo) {
-        INVENTARIO.push(articulo);
-        const GUARDAR_INVENTARIO = sessionStorage.setItem('inventario', JSON.stringify(INVENTARIO));
+        inventario.push(articulo);
+        console.log(inventario)
+        const GUARDAR_INVENTARIO = sessionStorage.setItem('inventario', JSON.stringify(inventario));
         const POPUP_NODE = document.querySelector('.popup--size');
         document.body.removeChild(POPUP_NODE);
     }
