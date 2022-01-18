@@ -10,8 +10,10 @@ class Inventario{
     imprimirInventario(inventario){
         inventario.forEach((articulo) => {
             this.contendedor.innerHTML += `
-            <img src="${articulo.img}">
-            ${articulo.price}
+            <div>
+                <img class='contenedor__object--size' src="${articulo.img}">
+                <p>Precio: ${articulo.price}</p>
+            </div>
             `
         })
     }

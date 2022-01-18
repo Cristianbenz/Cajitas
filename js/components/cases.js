@@ -49,7 +49,7 @@ class Caja {
         const POPUP_CONTENT = PREMIO_POPUP.innerHTML = `
             <article id='popUp'>
                 <p>¿Desea vender su articulo?</p>
-                <img src="${articulo.img}">
+                <img class='popup__img--size' src="${articulo.img}">
                 <p>${articulo.name}</p>
                 <p>Precio: $${articulo.price}</p>
             </article>
