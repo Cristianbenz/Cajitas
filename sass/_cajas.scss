@@ -82,8 +82,19 @@ $bgColor in $fondoPremios {
     background-color: $color3;
 }
 
-.popup--size {
+.popup--sizeShow {
     @include size(50%, 80%);
+    animation-name: popupShow;
+    animation-duration: .7s;
+}
+
+@keyframes popupShow {
+    0% {
+        transform: scale(0%);
+    }
+    100%{
+        transform: scale(100%);
+    }
 }
 
 .popup--position {
