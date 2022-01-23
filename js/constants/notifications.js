@@ -1,0 +1,1 @@
+const NOTIFICATIONS = new Mesage();

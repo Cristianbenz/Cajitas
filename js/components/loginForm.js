@@ -13,6 +13,7 @@ class Usuario {
             const GUARDAR_ACCESO = sessionStorage.setItem('acceso', true);
             const GUARDAR_USERNAME = sessionStorage.setItem('username', USERNAME);
         } else {
+            
             alert("Edad o usuario no valido")
         }
     }

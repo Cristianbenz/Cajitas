@@ -11,7 +11,7 @@ class Case {
             premio5
         ]
         this.caseHtml();
-        
+
 
     }
     caseHtml() {
@@ -29,19 +29,25 @@ class Case {
         const INNER = nodo.querySelector('.cajas__inner--layout');
         this.premios.forEach((reward) => {
             const INNER_LI = document.createElement('li');
-            const LI_CLASSES = INNER_LI.classList.add('inner__objects--size', 'inner__objects--position', 'inner__objects--border', 'inner__objects--padding')
-            const  REWARD = INNER_LI.innerHTML = `
+            const LI_CLASSES = INNER_LI.classList.add('inner__objects--size', 'inner__objects--position', 'inner__objects--border', 'inner__objects--padding', `inner__objects--${reward.quality}`)
+            const REWARD = INNER_LI.innerHTML = `
             <img class="object__img--size" src='${reward.img}' alt='${reward.name}'>
             `
-            const ADD_LI = INNER.appendChild(INNER_LI);
+            const ADD_LI = INNER.append(INNER_LI);
 
         })
     }
     button(nodo) {
         const BUTTON_NODO = document.createElement('button');
-        const BUTTON_TEXT = BUTTON_NODO.innerHTML= `GIRAR`
-        const ADD_BUTTON = nodo.appendChild(BUTTON_NODO);
-        const GIRAR = BUTTON_NODO.addEventListener('click', this.abrirCaja.bind(this))
+        const BUTTON_TEXT = BUTTON_NODO.innerHTML = `GIRAR`;
+        const BUTTON_CLASSES = BUTTON_NODO.classList.add('cajas__boton--width', 'cajas__boton--position', 'cajas__boton--border', 'cajas__boton--bg', 'cajas__boton--text')
+        const ADD_BUTTON = nodo.append(BUTTON_NODO);
+        const GIRAR = $(nodo).click( (evt) => {
+            if (evt.target.className.includes('cajas__boton--position')){
+                this.abrirCaja();
+            }
+        })
+
 
     }
     abrirCaja() {
@@ -66,7 +72,7 @@ class Case {
                 this.objetoPopup(this.premios[0]);
             }
         } else {
-            alert("Puntos insuficientes");
+            const NO_POINTS = new Mesagge('Puntos insuficientes');
         }
 
     }
@@ -77,13 +83,12 @@ class Case {
     }
     objetoPopup(articulo) {
         const PREMIO_POPUP = document.createElement('section');
-        const POPUP_CLASS = PREMIO_POPUP.classList.add('popup--sizeShow', 'popup--position', 'popup--layout', 'popup--bg')
-        const POPUP_HTML = document.body.appendChild(PREMIO_POPUP);
+        const POPUP_HTML = this.nodo.append(PREMIO_POPUP);
+        const POPUP_CLASS = $(PREMIO_POPUP).addClass('popup--size popup--position popup--layout popup--bg popup--show')
         const POPUP_CONTENT = PREMIO_POPUP.innerHTML = `
             <article id='popUp'>
-                <p>¿Desea vender su articulo?</p>
+                <p>GANASTE ${articulo.name}</p>
                 <img class='popup__img--size' src="${articulo.img}">
-                <p>${articulo.name}</p>
                 <p>Precio: $${articulo.price}</p>
             </article>
             <article>
@@ -96,8 +101,8 @@ class Case {
 
     }
     popupEvent(articulo) {
-        const POPUP_NODE = document.querySelector('.popup--sizeShow');
-        const DECISION = POPUP_NODE.addEventListener('click', (event) => {
+        const POPUP_NODE = $('.popup--size');
+        const DECISION = $(POPUP_NODE).click((event) => {
             if (event.target.id == 'venderArt') {
                 this.venderoObjetoGanado(articulo);
             } else if (event.target.id == 'guardarArt') {
@@ -106,18 +111,19 @@ class Case {
         });
     }
     venderoObjetoGanado(objeto) {
-        alert("Vendiste tu " + objeto.name);
+        NOTIFICATIONS.showToast(`Vendiste tu ${(objeto.name).toLowerCase()}`);
         points += objeto.price;
         const ADD_POINTS = new Puntos();
         ADD_POINTS.actualizarPuntos(points)
-        const POPUP_NODE = document.querySelector('.popup--sizeShow');
-        POPUP_NODE.parentNode.removeChild(POPUP_NODE);
+        const POPUP_NODE = $('.popup--show');
+        $(POPUP_NODE).remove();
     }
     guardarObjetoGanado(articulo) {
-        inventario.push(articulo);
-        console.log(inventario)
+        const TO_INVENTARIO = inventario.push(articulo);
+        NOTIFICATIONS.showToast(`Ahora tu ${(articulo.name).toLowerCase()} esta en tu inventario`);
         const GUARDAR_INVENTARIO = sessionStorage.setItem('inventario', JSON.stringify(inventario));
-        const POPUP_NODE = document.querySelector('.popup--sizeShow');
-        POPUP_NODE.parentNode.removeChild(POPUP_NODE);
+        const POPUP_NODE = document.querySelector('.popup--show');
+        $(POPUP_NODE).remove();
+        
     }
 }

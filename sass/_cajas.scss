@@ -82,18 +82,50 @@ $bgColor in $fondoPremios {
     background-color: $color3;
 }
 
-.popup--sizeShow {
+.popup--size {
     @include size(50%, 80%);
-    animation-name: popupShow;
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(0%);
+    animation-name: show;
     animation-duration: .7s;
+    animation-fill-mode: forwards;
 }
 
-@keyframes popupShow {
+@keyframes show {
     0% {
+        visibility: hidden;
+        opacity: 0;
         transform: scale(0%);
     }
-    100%{
+
+    100% {
+        visibility: visible;
+        opacity: 1;
         transform: scale(100%);
+    }
+}
+
+.popup--hide {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(100%);
+    animation-name: hide;
+    animation-duration: .7s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes hide {
+    0% {
+        visibility: visible;
+        opacity: 1;
+        transform: scale(100%);
+    }
+
+    100% {
+        visibility: hidden;
+        opacity: 0;
+        transform: scale(0%);
     }
 }
 
