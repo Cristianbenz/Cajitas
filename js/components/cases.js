@@ -42,8 +42,8 @@ class Case {
         const BUTTON_TEXT = BUTTON_NODO.innerHTML = `GIRAR`;
         const BUTTON_CLASSES = BUTTON_NODO.classList.add('cajas__boton--width', 'cajas__boton--position', 'cajas__boton--border', 'cajas__boton--bg', 'cajas__boton--text')
         const ADD_BUTTON = nodo.append(BUTTON_NODO);
-        const GIRAR = $(nodo).click( (evt) => {
-            if (evt.target.className.includes('cajas__boton--position')){
+        const GIRAR = $(nodo).click((evt) => {
+            if (evt.target.className.includes('cajas__boton--position')) {
                 this.abrirCaja();
             }
         })
@@ -54,23 +54,20 @@ class Case {
         if (points >= this.price) {
             this.descuentoDePuntos();
             const AZAR = (probabilidad) => Math.round(Math.random() * probabilidad);
-            const ABRIENDO = alert("Abirendo " + this.name + "...");
-            if (AZAR(1000) == 1) {
-                alert("Ganaste: " + this.premios[4].name);
-                this.objetoPopup(this.premios[4]);
-            } else if (AZAR(100) == 1) {
-                alert("Ganaste: " + this.premios[3].name);
-                this.objetoPopup(this.premios[3]);
-            } else if (AZAR(10) == 1) {
-                alert("Ganaste: " + this.premios[2].name);
-                this.objetoPopup(this.premios[2]);
-            } else if ((AZAR(10) > 1) && (AZAR(10) < 7)) {
-                alert("Ganaste: " + this.premios[1].name);
-                this.objetoPopup(this.premios[1]);
-            } else {
-                alert("Ganaste: " + this.premios[0].name);
-                this.objetoPopup(this.premios[0]);
-            }
+            const ABRIENDO = NOTIFICATIONS.showToast(`Abriendo ${this.name}...`);
+            const JUEGO = setTimeout(() => {
+                if (AZAR(1000) == 1) {
+                    this.objetoPopup(this.premios[4]);
+                } else if (AZAR(100) == 1) {
+                    this.objetoPopup(this.premios[3]);
+                } else if (AZAR(10) == 1) {
+                    this.objetoPopup(this.premios[2]);
+                } else if ((AZAR(10) > 1) && (AZAR(10) < 7)) {
+                    this.objetoPopup(this.premios[1]);
+                } else {
+                    this.objetoPopup(this.premios[0]);
+                }
+            }, 2500)
         } else {
             const NO_POINTS = new Mesagge('Puntos insuficientes');
         }
@@ -124,6 +121,6 @@ class Case {
         const GUARDAR_INVENTARIO = sessionStorage.setItem('inventario', JSON.stringify(inventario));
         const POPUP_NODE = document.querySelector('.popup--show');
         $(POPUP_NODE).remove();
-        
+
     }
 }
