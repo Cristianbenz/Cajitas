@@ -69,7 +69,7 @@ class Case {
                 }
             }, 2500)
         } else {
-            const NO_POINTS = new Mesagge('Puntos insuficientes');
+            const NO_POINTS = new Mesage('Puntos insuficientes');
         }
 
     }
