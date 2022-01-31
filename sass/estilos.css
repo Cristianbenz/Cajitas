@@ -16,9 +16,10 @@ body {
   height: auto;
   visibility: hidden;
   position: fixed;
-  top: 0%;
+  top: 5%;
   left: 1%;
   z-index: 100;
+  opacity: 0;
   border-radius: .2rem;
   background-color: rgba(0, 255, 255, 0.63);
   padding: .4rem;
@@ -34,8 +35,7 @@ body {
 
 .addPopup--size {
   width: 40%;
-  height: 42%;
-  background-color: red;
+  height: 35%;
 }
 
 .addPopup--position {
@@ -54,7 +54,68 @@ body {
           flex-direction: column;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  padding: 0% 2.5%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.addPopup--bg {
+  background-color: #405180;
+}
+
+.addPopup__label--text {
+  font-size: 1.5rem;
+}
+
+#addPointsInput {
+  width: 90%;
+  height: 3rem;
+  font-size: 2rem;
+  background-color: #d3d1b6;
+  border: none;
+}
+
+.addPoints__button {
+  width: 85%;
+  height: 3rem;
+  padding: 2%;
+  border: none;
+  background-color: #c2c0a0;
+  -webkit-transition: all .7s;
+  transition: all .7s;
+}
+
+.addPoints__button:hover {
+  background-color: #d8d6be;
+}
+
+.infoButton {
+  position: fixed;
+  bottom: 3%;
+  right: 3%;
+  border-radius: 10rem;
+  padding: 1rem;
+}
+
+.slideBar {
+  position: fixed;
+  margin: 2rem;
+  -webkit-box-shadow: 0rem 0rem 0.6rem 0.2rem #3f3e3d;
+          box-shadow: 0rem 0rem 0.6rem 0.2rem #3f3e3d;
+  display: none;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 1%;
+  background-color: antiquewhite;
+}
+
+.slideBar > article {
+  width: 10rem;
+  height: 10rem;
+  border: .1rem solid black;
+  padding: .6%;
 }
 
 .headerLogin--layout {
@@ -113,6 +174,14 @@ body {
 .login__boton--size {
   width: 90%;
   height: 3.5rem;
+}
+
+#usernameError {
+  display: none;
+}
+
+#ageError {
+  display: none;
 }
 
 .login__boton--position {
@@ -499,15 +568,25 @@ body {
 
 .inventario__acciones--border {
   border-bottom: .2rem solid black;
+  padding: 1%;
 }
 
 .inventario__acciones--bg, .inventario__contenedor--bg {
   background-color: #c7cfb7;
 }
 
+#sellAll, #withdraw {
+  margin: 1%;
+  border-radius: .4rem;
+  border: .1rem blue solid;
+  -webkit-box-shadow: 0px 0px 2px 3px burlywood;
+          box-shadow: 0px 0px 2px 3px burlywood;
+  padding: .5%;
+}
+
 .inventario__contenedor--size {
   width: 95%;
-  height: 34rem;
+  height: auto;
 }
 
 .inventario__contenedor--layout {
@@ -515,10 +594,18 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .contenedor__object--size {
-  width: 100%;
-  height: 30%;
+  width: 10%;
+  height: 8rem;
+  margin: 1%;
+}
+
+.object__img--size {
+  width: 90%;
+  height: 90%;
 }
 /*# sourceMappingURL=estilos.css.map */

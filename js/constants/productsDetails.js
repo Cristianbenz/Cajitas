@@ -11,5 +11,5 @@ const MAC = new Premio("Mac", 15000, './img/macbook.png', 'unico');
 const SMART = new Premio("Smart Tv", 6000, './img/smart.webp', 'comun');
 const PS5 = new Premio("PS5", 8500, './img/ps5.png', 'comun');
 const PC = new Premio("PC Gamer", 35000, './img/pc.png', 'raro');
-const OBJETO_NO_DEFINIDO = new Premio("Tilin", 70000, './img/', 'especial');
-const AUTO = new Premio("Audi rs7", 200000, './img/', 'unico');
+const OBJETO_NO_DEFINIDO = new Premio("Lancha", 70000, './img/lancha.png', 'especial');
+const AUTO = new Premio("Audi rs7", 200000, './img/audiRs7.png', 'unico');

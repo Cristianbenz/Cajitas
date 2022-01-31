@@ -42,6 +42,14 @@
     @include size(90%, 3.5rem);
 }
 
+#usernameError{
+    display: none;
+}
+
+#ageError{
+    display: none;
+}
+
 .login__boton--position{
     margin: 0% auto;
 }

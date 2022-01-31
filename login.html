@@ -18,13 +18,15 @@
     <main>
         <section class="login--size login--position login--bg">
             <form class="login__form--height login__form--layout" id="loginForm">
-                <div>
+                <div id="usernameField">
                     <label class="login__label--text" for="username">Username:</label>
                     <input class="login__entrada--size login__entrada--text" type="text" name="username" id="username">
+                    <p id="usernameError">Completar usuario</p>
                 </div>
-                <div>
+                <div id="ageField">
                     <label class="login__label--text" for="age">Edad:</label>
                     <input class="login__entrada--size login__entrada--text" type="number" name="age" id="age">
+                    <p id="ageError">Debes ser mayor de edad</p>
                 </div>
                 <button id="ingreso" class="login__boton--size login__boton--position">Ingresar</button>
             </form>
@@ -32,7 +34,9 @@
     </main>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="./js/components/toastMessage.js"></script>
     <script src="./js/components/loginForm.js"></script>
+    <script src="./js/constants/notifications.js"></script>
     <script src="./js/login.js"></script>
 </body>
 

@@ -5,7 +5,7 @@ class Mesage{
     }
     toastHtml(){
         const TOAST_CLASSES = $(this.nodo).addClass('toast');
-        document.body.appendChild(this.nodo);
+        $('body').prepend(this.nodo);
     }
     showToast(text){
         const TOAST_CONTENT = this.nodo.innerHTML = text;

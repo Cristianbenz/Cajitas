@@ -11,13 +11,13 @@ class Puntos {
         const ADD_POPUP = document.createElement('div');
         const ADD_POPUP_HTML = ADD_POPUP.innerHTML = `
         <form id='addPointsform' action="">
-            <label for="points">¿Cuantos puntos desea agregar?</label>
+            <label class='addPopup__label--text' for="points">¿Cuantos puntos desea agregar?</label>
             <input id='addPointsInput' type="number" name="points" id="points">
-            <button>Agregar</button>
+            <button class='addPoints__button'>Agregar</button>
         </form>
         `;
         const SHOW_ADD_POPUP = this.node.append(ADD_POPUP);
-        const ADD_FORM_CLASSES = $(addPointsform).addClass('addPopup--size addPopup--position addPopup--layout');
+        const ADD_FORM_CLASSES = $(addPointsform).addClass('addPopup--size addPopup--position addPopup--layout addPopup--bg');
         this.agregarPuntos();
     }
     agregarPuntos() {
@@ -29,7 +29,8 @@ class Puntos {
         })
     }
     actualizarPuntos(cambios) {
-        const STORAGE_POINTS = sessionStorage.setItem('points', cambios)
+        document.querySelector('#puntos');
+        const STORAGE_POINTS = sessionStorage.setItem('points', cambios);
         this.node.innerHTML = `${cambios}`;
     }
 }

@@ -12,8 +12,8 @@ class Inventario {
     imprimirInventario(inventario) {
         inventario.forEach((articulo) => {
             this.contendedor.innerHTML += `
-            <div>
-                <img class='contenedor__object--size' src="${articulo.img}">
+            <div class='contenedor__object--size'>
+                <img class='object__img--size' src="${articulo.img}">
                 <p>Precio: ${articulo.price}</p>
             </div>
             `
@@ -34,8 +34,8 @@ class Inventario {
         points += PRECIO_TOTAL;
         const INVENTARIO_POINTS = new Puntos();
         INVENTARIO_POINTS.actualizarPuntos(points);
-        const BORRAR_INVENTARIO = localStorage.setItem('inventario', JSON.stringify([]));
-        this.actualizarInventario();
+        const BORRAR_INVENTARIO = sessionStorage.setItem('inventario', JSON.stringify([]));
+        $(this.contendedor).html([])
     }
 }
 

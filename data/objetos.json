@@ -1,0 +1,62 @@
+{
+    "osito": {
+        "name": "osito",
+        "price": 30
+    },
+    "steamgc": {
+        "name": "steam gift card",
+        "price": 90
+    },
+    "auriculares": {
+        "name": "auriculares",
+        "price": 550
+    },
+    "mouse": {
+        "name": "mouse gamer",
+        "price": 1500
+    },
+    "jordas": {
+        "name": "jordans",
+        "price":5000
+    },
+    "camara": {
+        "name": "camara fotografica",
+        "price": 500
+    },
+    "appleWatch": {
+        "name": "apple watch",
+        "price": 1600
+    },
+    "samsung": {
+        "name": "smartphone samsung",
+        "price": 2700
+    },
+    "ipad": {
+        "name": "ipad",
+        "price": 8000
+    },
+    "mac": {
+        "name": "macbook",
+        "price": 15000
+    },
+    "smart": {
+        "name": "smartTv",
+        "price":  6000
+    },
+    "ps5": {
+        "name": "ps5",
+        "price": 8500
+    },
+    "pc": {
+        "name": "pc gamer",
+        "price":  35000
+    },
+    "lancha": {
+        "name": "lancha",
+        "price": 70000
+    },
+    "auto": {
+        "name": "audi rs7",
+        "price": 200000
+    }
+}
