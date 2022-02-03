@@ -68,15 +68,15 @@ class Case {
         // this.caseAnimation;
       }, 250);
       if (AZAR(1000) == 1) {
-        this.rewardTarget(this.premios[4]);
+        this.rewardTargetAnimation(this.premios[4]);
       } else if (AZAR(100) == 1) {
-        this.rewardTarget(this.premios[3]);
+        this.rewardTargetAnimation(this.premios[3]);
       } else if (AZAR(10) == 1) {
-        this.rewardTarget(this.premios[2]);
+        this.rewardTargetAnimation(this.premios[2]);
       } else if (AZAR(10) > 1 && AZAR(10) < 7) {
-        this.rewardTarget(this.premios[1]);
+        this.rewardTargetAnimation(this.premios[1]);
       } else {
-        this.rewardTarget(this.premios[0]);
+        this.rewardTargetAnimation(this.premios[0]);
       }
     } else {
       const NO_POINTS = NOTIFICATIONS.showToast("Puntos insuficientes");
@@ -98,25 +98,28 @@ class Case {
     }, 950);
   }
 
-  rewardTarget(target) {
+  rewardTargetAnimation(target) {
     const wheel = $(".cajas__inner--layout");
     const POSITION = this.premios.indexOf(target);
-    const LANDING_POSITION =  (POSITION * 6) + 21.3;
+    const LANDING_POSITION = POSITION * 6 + 17.5;
     wheel.css({
-      "transition-duration": "500ms",
+      "transition-duration": "600ms",
+      "animation-timing-duration": "ease",
       transform: "translateX(-" + LANDING_POSITION + "%)",
     });
     console.log(target);
     console.log(POSITION);
-    console.log(-POSITION +38.3);
+    console.log(-POSITION + 38.3);
 
-    setTimeout(function () {
+    setTimeout( () => {
       wheel.css({
-        "transition-duration": "",
+        "transition-duration": ""
       });
 
       wheel.css("transform", "translateX(" + 0 + "%)");
-    }, 950);
+      
+    }, 1500);
+    this.objetoPopup(target)
   }
 
   descuentoDePuntos() {
@@ -125,24 +128,27 @@ class Case {
     QUITAR_PUNTOS.actualizarPuntos(points);
   }
   objetoPopup(articulo) {
-    const PREMIO_POPUP = document.createElement("section");
-    const POPUP_HTML = this.nodo.append(PREMIO_POPUP);
-    const POPUP_CLASS = $(PREMIO_POPUP).addClass(
-      "popup--size popup--position popup--layout popup--bg popup--show"
-    );
-    const POPUP_CONTENT = (PREMIO_POPUP.innerHTML = `
-            <article id='popUp'>
-                <p>GANASTE ${articulo.name}</p>
-                <img class='popup__img--size' src="${articulo.img}">
-                <p>Precio: $${articulo.price}</p>
-            </article>
-            <article>
-                <button id="venderArt">Vender</button>
-                <button id="guardarArt">Al inventario</button>
-            </article>
-            
-        `);
-    this.popupEvent(articulo);
+    setTimeout(() => {
+      const PREMIO_POPUP = document.createElement("section");
+      const POPUP_HTML = this.nodo.append(PREMIO_POPUP);
+      const POPUP_CLASS = $(PREMIO_POPUP).addClass(
+        "popup--size popup--position popup--layout popup--bg popup--show"
+      );
+      const POPUP_CONTENT = (PREMIO_POPUP.innerHTML = `
+              <article id='popUp'>
+                  <p>GANASTE ${articulo.name}</p>
+                  <img class='popup__img--size' src="${articulo.img}">
+                  <p>Precio: $${articulo.price}</p>
+              </article>
+              <article>
+                  <button id="venderArt">Vender</button>
+                  <button id="guardarArt">Al inventario</button>
+              </article>
+              
+          `);
+      this.popupEvent(articulo);
+      
+    }, 1000);
   }
   popupEvent(articulo) {
     const POPUP_NODE = $(".popup--size");
