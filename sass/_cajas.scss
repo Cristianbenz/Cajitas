@@ -1,152 +1,182 @@
-$fondoPremios:(comun: radial-gradient(circle, rgba(39, 185, 255, 1) 24%, rgba(0, 151, 255, 1) 61%, rgba(61, 124, 255, 1) 100%),
-    raro: radial-gradient(circle, rgba(206, 51, 230, 1) 20%, rgba(166, 0, 255, 1) 61%, rgba(197, 61, 255, 1) 100%),
-    especial: radial-gradient(circle, rgba(254, 207, 54, 1) 24%, rgba(255, 166, 0, 1) 61%, rgba(255, 122, 61, 1) 100%),
-    unico: radial-gradient(circle, rgba(243, 254, 54, 1) 38%, rgba(169, 255, 0, 1) 74%, rgba(179, 255, 61, 1) 100%));
+$fondoPremios: (
+  comun:
+    radial-gradient(
+      circle,
+      rgba(39, 185, 255, 1) 24%,
+      rgba(0, 151, 255, 1) 61%,
+      rgba(61, 124, 255, 1) 100%
+    ),
+  raro:
+    radial-gradient(
+      circle,
+      rgba(206, 51, 230, 1) 20%,
+      rgba(166, 0, 255, 1) 61%,
+      rgba(197, 61, 255, 1) 100%
+    ),
+  especial:
+    radial-gradient(
+      circle,
+      rgba(254, 207, 54, 1) 24%,
+      rgba(255, 166, 0, 1) 61%,
+      rgba(255, 122, 61, 1) 100%
+    ),
+  unico:
+    radial-gradient(
+      circle,
+      rgba(243, 254, 54, 1) 38%,
+      rgba(169, 255, 0, 1) 74%,
+      rgba(179, 255, 61, 1) 100%
+    ),
+);
 
 .cajas--size {
-    @include size(95%, auto)
+  @include size(95%, auto);
 }
 
 .cajas--position {
-    margin: 3% auto;
+  margin: 3% auto;
 }
 
 .cajas--border {
-    box-shadow: 0 0 .7rem rgb(146, 146, 113);
-    border-radius: 1rem;
+  box-shadow: 0 0 0.7rem rgb(146, 146, 113);
+  border-radius: 1rem;
 }
 
 .cajas--bg {
-    background-color: $color2;
+  background-color: $color2;
 }
 
 .cajas--layout {
-    padding: 3% 5%;
+  overflow: hidden;
+  padding: 3% 0%;
 }
 
 .cajas__h2--position {
-    text-align: center;
+  text-align: center;
+}
+
+.cajas__inner--width {
+  width: max-content;
 }
 
 .cajas__inner--layout {
-    display: flex;
-    padding: 3% 0%;
+  display: flex;
+  padding: 1% 0%;
 }
 
 .inner__objects--size {
-    @include size(100%, 13rem);
-    background-color: aqua;
+  @include size(14rem, 14rem);
+  background-color: aqua;
 }
 
 .inner__objects--position {
-    margin: .2% 0%;
+  margin: 0.2% 0%;
 }
 
 .inner__objects--border {
-    border: .3rem solid whitesmoke;
+  border: 0.3rem solid whitesmoke;
 }
 
 .inner__objects--padding {
-    padding: 3.5%;
+  padding: 1rem;
 }
 
-@each $calidad,
-$bgColor in $fondoPremios {
-    .inner__objects--#{$calidad} {
-        background: $bgColor;
-    }
+@each $calidad, $bgColor in $fondoPremios {
+  .inner__objects--#{$calidad} {
+    background: $bgColor;
+  }
 }
 
 .object__img--size {
-    @include size(100%, 100%);
+  @include size(100%, 100%);
 }
 
 .cajas__boton--width {
-    width: 15%;
+  width: 15%;
 }
 
 .cajas__boton--position {
-    margin: 0% 42%;
+  margin: 0% 42%;
 }
 
 .cajas__boton--border {
-    border: none;
+  border: none;
 }
 
 .cajas__boton--text {
-    font-size: 1.5rem;
-    padding: .6rem;
+  font-size: 1.5rem;
+  padding: 0.6rem;
 }
 
 .cajas__boton--bg {
-    background-color: $color3;
+  background-color: $color3;
 }
 
 .popup--size {
-    @include size(50%, 80%);
-    visibility: hidden;
-    opacity: 0;
-    transform: scale(0%);
-    animation-name: show;
-    animation-duration: .7s;
-    animation-fill-mode: forwards;
+  @include size(50%, 80%);
+  visibility: hidden;
+  opacity: 0;
+  transform: scale(0%);
+  animation-name: show;
+  animation-duration: 0.7s;
+  animation-fill-mode: forwards;
 }
 
 @keyframes show {
-    0% {
-        visibility: hidden;
-        opacity: 0;
-        transform: scale(0%);
-    }
+  0% {
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(0%);
+  }
 
-    100% {
-        visibility: visible;
-        opacity: 1;
-        transform: scale(100%);
-    }
-}
-
-.popup--hide {
+  100% {
     visibility: visible;
     opacity: 1;
     transform: scale(100%);
-    animation-name: hide;
-    animation-duration: .7s;
-    animation-fill-mode: forwards;
+  }
+}
+
+.popup--hide {
+  visibility: visible;
+  opacity: 1;
+  transform: scale(100%);
+  animation-name: hide;
+  animation-duration: 0.7s;
+  animation-fill-mode: forwards;
 }
 
 @keyframes hide {
-    0% {
-        visibility: visible;
-        opacity: 1;
-        transform: scale(100%);
-    }
+  0% {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(100%);
+  }
 
-    100% {
-        visibility: hidden;
-        opacity: 0;
-        transform: scale(0%);
-    }
+  100% {
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(0%);
+  }
 }
 
 .popup--position {
-    position: fixed;
-    top: 10%;
-    left: 25%;
+  position: fixed;
+  top: 10%;
+  left: 25%;
 }
 
 .popup--layout {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 3%;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 3%;
+  text-align: center;
 }
 
 .popup--bg {
-    background-color: $color4;
+  background-color: $color4;
 }
 
 .popup__img--size {
-    @include size(50%, 90%);
+  @include size(50%, 90%);
 }

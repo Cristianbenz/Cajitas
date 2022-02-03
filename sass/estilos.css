@@ -281,23 +281,30 @@ body {
 }
 
 .cajas--layout {
-  padding: 3% 5%;
+  overflow: hidden;
+  padding: 3% 0%;
 }
 
 .cajas__h2--position {
   text-align: center;
 }
 
+.cajas__inner--width {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
 .cajas__inner--layout {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 3% 0%;
+  padding: 1% 0%;
 }
 
 .inner__objects--size {
-  width: 100%;
-  height: 13rem;
+  width: 14rem;
+  height: 14rem;
   background-color: aqua;
 }
 
@@ -310,7 +317,7 @@ body {
 }
 
 .inner__objects--padding {
-  padding: 3.5%;
+  padding: 1rem;
 }
 
 .inner__objects--comun {
