@@ -1,123 +1,142 @@
 .informacion--position {
-    margin: 10% 0%;
+  margin: 10% 0%;
 }
 
 .informacion--layout {
-    display: flex;
-    justify-content: space-evenly;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .informacion__perfil--size {
-    background-color: $color2;
-    @include size(30%, 28rem);
+  background-color: $color2;
+}
+
+.informacion__perfil--layout {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 0% 1.5%;
+}
+
+.infoImg--size {
+  @include size(60%, 35%);
+}
+
+.infoImg--position {
+  align-self: center;
+}
+
+.perfilImg {
+  border: 0.3rem solid $color4;
+  @include size(100%, 100%);
 }
 
 .informacion__form--size {
-    @include size(50%, auto);
+  @include size(50%, auto);
 }
 
 .informacion__form--layout {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 .form__label--text {
-    font-size: 1.5rem;
-    font-weight: 600;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
 .form__campo--size {
-    @include size(100%, 2.5rem);
+  @include size(100%, 2.5rem);
 }
 
 .form__campo--border {
-    border: none;
-    border-bottom: .2rem solid black;
-    font-size: 1.3rem;
+  border: none;
+  border-bottom: 0.2rem solid black;
+  font-size: 1.3rem;
 }
 
 .form__campo--bg {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 .form__enviar--size {
-    @include size(100%, 3rem)
+  @include size(100%, 3rem);
 }
 
 .form__enviar--bg {
-    background-color: $color3;
+  background-color: $color3;
 }
 
 .inventario--size {
-    @include size(100%, auto);
+  @include size(100%, auto);
 }
 
 .inventario--bg {
-    background-color: $color3;
+  background-color: $color3;
 }
 
 .inventario--layout {
-    padding: 3% 0%;
+  padding: 3% 0%;
 }
 
 .inventario__h2--position {
-    text-align: center;
-    margin-bottom: 2%;
+  text-align: center;
+  margin-bottom: 2%;
 }
 
 .inventario__acciones--size {
-    @include size(95%, 5rem);
+  @include size(95%, 5rem);
 }
 
 .inventario__acciones--position {
-    margin: 0% auto;
+  margin: 0% auto;
 }
 
 .inventario__acciones--border {
-    border-bottom: .2rem solid black;
-    padding: 1%;
+  border-bottom: 0.2rem solid black;
+  padding: 1%;
 }
 
 .inventario__acciones--bg {
-    background-color: $color2;
+  background-color: $color2;
 }
 
 #sellAll {
-    margin: 1%;
-    border-radius: .4rem;
-    border: .1rem blue solid;
-    box-shadow: 0px 0px 2px 3px burlywood;
-    padding: .5%;
+  margin: 1%;
+  border-radius: 0.4rem;
+  border: 0.1rem blue solid;
+  box-shadow: 0px 0px 2px 3px burlywood;
+  padding: 0.5%;
 }
 
 #withdraw {
-    @extend #sellAll;
+  @extend #sellAll;
 }
 
 .inventario__contenedor--size {
-    @include size(95%, auto);
+  @include size(95%, auto);
 }
 
 .inventario__contenedor--position {
-    @extend .inventario__acciones--position;
+  @extend .inventario__acciones--position;
 }
 
 .inventario__contenedor--bg {
-    @extend .inventario__acciones--bg;
+  @extend .inventario__acciones--bg;
 }
 
 .inventario__contenedor--layout {
-    padding: 2%;
-    display: flex;
-    flex-wrap: wrap;
+  padding: 2%;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .contenedor__object--size {
-    @include size(10%, 8rem);
-    margin: 1%;
+  @include size(10%, 8rem);
+  margin: 1%;
 }
 
 .object__img--size {
-    @include size(90%, 90%);
+  @include size(90%, 90%);
 }

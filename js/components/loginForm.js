@@ -5,7 +5,6 @@ class Usuario {
 
     }
     ingreso(event) {
-        event.preventDefault();
         const USERNAME = $('#username').val();
         const AGE = $('#age').val();
         if (USERNAME != '' && AGE >= 18) {
@@ -28,7 +27,10 @@ class Usuario {
         }
     }
     submit() {
-        const SUBMIT = $(this.form).submit(this.ingreso);
+        const SUBMIT = $(this.form).submit((event) => {
+            event.preventDefault();
+            this.ingreso();
+        });
     }
 
 }

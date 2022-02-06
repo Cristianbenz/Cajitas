@@ -65,7 +65,6 @@ class Case {
       const AZAR = (probabilidad) => Math.round(Math.random() * probabilidad);
       const ABRIENDO = NOTIFICATIONS.showToast(`Abriendo ${this.name}...`);
       const JUEGO = setTimeout(() => {
-        // this.caseAnimation;
       }, 250);
       if (AZAR(1000) == 1) {
         this.rewardTargetAnimation(this.premios[4]);
@@ -107,9 +106,6 @@ class Case {
       "animation-timing-duration": "ease",
       transform: "translateX(-" + LANDING_POSITION + "%)",
     });
-    console.log(target);
-    console.log(POSITION);
-    console.log(-POSITION + 38.3);
 
     setTimeout( () => {
       wheel.css({
