@@ -51,7 +51,8 @@ body {
 .addPopup--position {
     position: absolute;
     right: 5%;
-    top: 12%
+    top: 12%;
+    z-index: 2;
 }
 
 .addPopup--layout {

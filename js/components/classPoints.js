@@ -5,28 +5,32 @@ class Puntos {
     this.buttonEvent();
   }
   buttonEvent() {
-    $(this.button).click(this.addPointsPopup.bind(this));
+    $(this.button).click(() => this.addPointsPopup());
   }
   addPointsPopup() {
     const ADD_POPUP = document.createElement("div");
-    const ADD_POPUP_HTML = (ADD_POPUP.innerHTML = `
+    ADD_POPUP.innerHTML = `
         <form id='addPointsform' action="">
             <label class='addPopup__label--text' for="points">¿Cuantos puntos desea agregar?</label>
-            <input id='addPointsInput' type="number" name="points" id="points">
+            <input id='addPointsInput' type="number" name="points" placeholder='MAX-15000'>
             <button class='addPoints__button'>Agregar</button>
         </form>
-        `);
-    const SHOW_ADD_POPUP = this.node.append(ADD_POPUP);
+        `;
+    this.node.append(ADD_POPUP);
     $(addPointsform).addClass(
       "addPopup--size addPopup--position addPopup--layout addPopup--bg"
     );
     this.agregarPuntos();
   }
   agregarPuntos() {
-    $("#addPointsform").submit((event) => {
-      event.preventDefault();
-      const INPUT_POINTS = $(addPointsInput).val();
-      points += parseFloat(INPUT_POINTS);
+    $("#addPointsform").submit((e) => {
+      e.preventDefault();
+      const INPUT_POINTS = $('#addPointsInput').val();
+      if ( INPUT_POINTS === '' || INPUT_POINTS > 15000){
+        points += 0;
+      } else {
+        points += parseFloat(INPUT_POINTS);
+      }
       this.actualizarPuntos(points);
     });
   }

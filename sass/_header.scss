@@ -14,27 +14,6 @@
     @include size(5rem, 5rem)
 }
 
-.header__buscador--position{
-    margin-left: 20%;
-}
-
-.buscador__input--height{
-    @include size(73%, 1.9rem);
-}
-
-.buscador__boton--bg{
-    background-color: $color3;
-}
-
-.buscador__boton--border{
-    border: none;
-    border: 1.2px solid $color3;
-}
-
-.buscador__boton--padding{
-    padding: 2%;
-}
-
 .header__menu--layout{
     display: flex;
     align-items: center;

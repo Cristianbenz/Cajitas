@@ -29,7 +29,6 @@ class Inicio {
         const AGREGAR_NODO_LOGIN = document.createElement("article");
         AGREGAR_NODO_LOGIN.innerHTML = this.info;
         MENU_NODE.appendChild(AGREGAR_NODO_LOGIN);
-        const PUNTELIS = new Puntos();
-
+        new Puntos();
     }
 }

@@ -1,30 +1,30 @@
 class Case {
   constructor(name, price, premio1, premio2, premio3, premio4, premio5) {
-    this.nodo = document.querySelector("main");
+    this.main = document.querySelector("main");
     this.name = name;
     this.price = price;
     this.premios = [premio1, premio2, premio3, premio4, premio5];
     this.caseHtml();
   }
   caseHtml() {
-    const SECTION = document.createElement("section");
-    const CASE_CLASSES = SECTION.classList.add(
+    this.nodo = document.createElement("section");
+    this.nodo.classList.add(
       "cajas--size",
       "cajas--position",
       "cajas--bg",
       "cajas--border",
       "cajas--layout"
     );
-    const CASE = (SECTION.innerHTML = `
+    const CASE = (this.nodo.innerHTML = `
             <h2 class="cajas__h2--position">${this.name}</h2>
             <ul class="cajas__inner--width cajas__inner--layout"></ul>
         `);
-    this.nodo.appendChild(SECTION);
-    this.rewardsHtml(SECTION);
-    this.button(SECTION);
+    this.main.appendChild(this.nodo);
+    this.rewardsHtml();
+    this.button();
   }
-  rewardsHtml(nodo) {
-    const INNER = nodo.querySelector(".cajas__inner--layout");
+  rewardsHtml() {
+    const INNER = this.nodo.querySelector(".cajas__inner--layout");
     for (let i = 0; i < 3; i++) {
       this.premios.forEach((reward) => {
         const INNER_LI = document.createElement("li");
@@ -42,18 +42,18 @@ class Case {
       });
     }
   }
-  button(nodo) {
+  button() {
     const BUTTON_NODO = document.createElement("button");
-    const BUTTON_TEXT = (BUTTON_NODO.innerHTML = `GIRAR - $${this.price}`);
-    const BUTTON_CLASSES = BUTTON_NODO.classList.add(
+    BUTTON_NODO.innerHTML = `GIRAR - $${this.price}`;
+    BUTTON_NODO.classList.add(
       "cajas__boton--width",
       "cajas__boton--position",
       "cajas__boton--border",
       "cajas__boton--bg",
       "cajas__boton--text"
     );
-    const ADD_BUTTON = nodo.append(BUTTON_NODO);
-    const GIRAR = $(nodo).click((evt) => {
+    this.nodo.append(BUTTON_NODO);
+    $(this.nodo).click((evt) => {
       if (evt.target.className.includes("cajas__boton--position")) {
         this.abrirCaja();
       }
@@ -77,11 +77,11 @@ class Case {
         this.caseAnimation(this.premios[0]);
       }
     } else {
-      const NO_POINTS = NOTIFICATIONS.showToast("Puntos insuficientes");
+      NOTIFICATIONS.showToast("Puntos insuficientes");
     }
   }
   caseAnimation(target) {
-    const wheel = $(".cajas__inner--layout");
+    const wheel = $(this.nodo).children(".cajas__inner--layout");
     const POSITION = this.premios.indexOf(target);
     const LANDING_POSITION = POSITION * 200 + 600;
     wheel.css({
@@ -102,13 +102,12 @@ class Case {
 
   descuentoDePuntos() {
     points -= this.price;
-    const QUITAR_PUNTOS = new Puntos();
-    QUITAR_PUNTOS.actualizarPuntos(points);
+    new Puntos().actualizarPuntos(points);
   }
   objetoPopup(articulo) {
     setTimeout(() => {
       const PREMIO_POPUP = document.createElement("section");
-      const POPUP_HTML = this.nodo.append(PREMIO_POPUP);
+      this.nodo.append(PREMIO_POPUP);
       $(PREMIO_POPUP).addClass(
         "popup--size popup--position popup--layout popup--bg popup--show"
       );
@@ -139,8 +138,7 @@ class Case {
   venderoObjetoGanado(objeto) {
     NOTIFICATIONS.showToast(`Vendiste tu ${objeto.name.toLowerCase()}`);
     points += objeto.price;
-    const ADD_POINTS = new Puntos();
-    ADD_POINTS.actualizarPuntos(points);
+    new Puntos().actualizarPuntos(points);
     $(".popup--show").remove();
   }
   guardarObjetoGanado(articulo) {

@@ -36,8 +36,7 @@ class Inventario {
       0
     );
     points += PRECIO_TOTAL;
-    const INVENTARIO_POINTS = new Puntos();
-    INVENTARIO_POINTS.actualizarPuntos(points);
+    new Puntos().actualizarPuntos(points);
     sessionStorage.setItem("inventario", JSON.stringify([]));
     $(this.contendedor).html([]);
   }
