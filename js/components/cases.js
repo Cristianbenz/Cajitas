@@ -83,7 +83,7 @@ class Case {
   caseAnimation(target) {
     const wheel = $(this.nodo).children(".cajas__inner--layout");
     const POSITION = this.premios.indexOf(target);
-    const LANDING_POSITION = POSITION * 200 + 600;
+    const LANDING_POSITION = POSITION * 200 + 640;
     wheel.css({
       "transition-duration": "600ms",
       "animation-timing-duration": "ease",

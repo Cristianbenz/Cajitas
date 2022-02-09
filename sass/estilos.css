@@ -100,6 +100,7 @@ body {
 
 .slideBar {
   position: fixed;
+  z-index: 1;
   margin: 2rem;
   -webkit-box-shadow: 0rem 0rem 0.6rem 0.2rem #3f3e3d;
           box-shadow: 0rem 0rem 0.6rem 0.2rem #3f3e3d;

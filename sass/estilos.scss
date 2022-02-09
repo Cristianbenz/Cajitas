@@ -100,6 +100,7 @@ body {
 
 .slideBar{
     position: fixed;
+    z-index: 1;
     margin: 2rem;
     box-shadow: 0rem 0rem .6rem .2rem rgb(63, 62, 61);
     display: none;
