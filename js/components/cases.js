@@ -83,11 +83,11 @@ class Case {
   caseAnimation(target) {
     const wheel = $(".cajas__inner--layout");
     const POSITION = this.premios.indexOf(target);
-    const LANDING_POSITION = POSITION * 6 + 17.5;
+    const LANDING_POSITION = POSITION * 200 + 600;
     wheel.css({
       "transition-duration": "600ms",
       "animation-timing-duration": "ease",
-      transform: "translateX(-" + LANDING_POSITION + "%)",
+      transform: "translateX(-" + LANDING_POSITION + "px)",
     });
 
     setTimeout(() => {
@@ -95,7 +95,7 @@ class Case {
         "transition-duration": "",
       });
 
-      wheel.css("transform", "translateX(" + 0 + "%)");
+      wheel.css("transform", "translateX(" + 0 + "px)");
     }, 1500);
     this.objetoPopup(target);
   }
