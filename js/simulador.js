@@ -5,5 +5,5 @@ const CASE2 = new Case("Caja 2", 2400, CAMARA, APPLE_WATCH, SMARTPHONE_SAMSUNG, 
 
 const CASE3 = new Case("Caja 3", 10000, SMART, PS5, PC, OBJETO_NO_DEFINIDO, AUTO);
 
-const NUEVO_INICIO = new Inicio();
-const INFORMACION = new Sidebar();
+new Inicio();
+new Sidebar();

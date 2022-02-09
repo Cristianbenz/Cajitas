@@ -202,7 +202,12 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 1rem;
+}
+
+#logo {
+  margin-left: 1rem;
+  width: 5rem;
+  height: 5rem;
 }
 
 .header__buscador--position {
@@ -239,6 +244,10 @@ body {
 .menu__items--position {
   margin-left: 1.5rem;
   display: inline-block;
+}
+
+.items--position {
+  margin: 0% 1rem;
 }
 
 .items__text--style {
@@ -511,8 +520,8 @@ body {
 }
 
 .infoImg--size {
-  width: 60%;
-  height: 35%;
+  width: 10rem;
+  height: 9rem;
 }
 
 .infoImg--position {

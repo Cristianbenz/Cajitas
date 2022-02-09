@@ -1,1 +1,1 @@
-const NOTIFICATIONS = new Mesage();
+const NOTIFICATIONS = new Message();

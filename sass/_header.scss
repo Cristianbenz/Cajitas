@@ -6,7 +6,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem;
+}
+
+#logo{
+    margin-left: 1rem;
+    @include size(5rem, 5rem)
 }
 
 .header__buscador--position{
@@ -38,6 +42,10 @@
 .menu__items--position{
     margin-left: 1.5rem;
     display: inline-block;
+}
+
+.items--position{
+    margin: 0% 1rem;
 }
 
 .items__text--style{

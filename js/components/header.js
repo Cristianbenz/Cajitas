@@ -11,7 +11,7 @@ class Inicio {
     eliminarLogin() {
         if (this.acceso === 'true') {
             const LOGIN_NODE = document.getElementById('loginNode');
-            const BORRAR_LOGIN = LOGIN_NODE.parentNode.removeChild(LOGIN_NODE);
+            LOGIN_NODE.parentNode.removeChild(LOGIN_NODE);
             this.imprimirDatos();
         }
     }
@@ -28,7 +28,7 @@ class Inicio {
         const MENU_NODE = document.getElementById('menuNode');
         const AGREGAR_NODO_LOGIN = document.createElement("article");
         AGREGAR_NODO_LOGIN.innerHTML = this.info;
-        const AGREGAR_LOGIN = MENU_NODE.appendChild(AGREGAR_NODO_LOGIN);
+        MENU_NODE.appendChild(AGREGAR_NODO_LOGIN);
         const PUNTELIS = new Puntos();
 
     }

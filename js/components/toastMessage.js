@@ -1,15 +1,15 @@
-class Mesage{
+class Message{
     constructor(){
         this.nodo = document.createElement('div');
         this.toastHtml();
     }
     toastHtml(){
-        const TOAST_CLASSES = $(this.nodo).addClass('toast');
+        $(this.nodo).addClass('toast');
         $('body').prepend(this.nodo);
     }
     showToast(text){
-        const TOAST_CONTENT = this.nodo.innerHTML = text;
-        const TOAST_VISIBLE = $(this.nodo).addClass('toast--visible');
+        this.nodo.innerHTML = text;
+        $(this.nodo).addClass('toast--visible');
         this.hideToast();
     }
     hideToast(){

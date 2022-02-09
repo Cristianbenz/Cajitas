@@ -1,7 +1,7 @@
 class WithdrawForm {
   constructor() {
     this.form = $("#informacionForm");
-    this.formSubmit();
+    this.formEvent();
   }
   getInfo() {
     this.name = $("#witdrawName").val();
@@ -17,13 +17,10 @@ class WithdrawForm {
       mail: this.mail,
       adress: this.adress,
     };
-    const GUARDAR_INFO = sessionStorage.setItem(
-      "withdrawInfo",
-      JSON.stringify(WITHDRAW_INFO)
-    );
+    sessionStorage.setItem("withdrawInfo", JSON.stringify(WITHDRAW_INFO));
   }
-  formSubmit() {
-    const EVENT = $(this.form).submit((event) => {
+  formEvent() {
+    $(this.form).submit((event) => {
       event.preventDefault();
       this.getInfo();
     });

@@ -8,9 +8,9 @@ class Sidebar {
     }
     button(){
         const CREATE_BUTTON = document.createElement('button');
-        const BUTTON_CLASSES = $(CREATE_BUTTON).addClass('infoButton')
-        const BUTTON_TEXT = $(CREATE_BUTTON).html('Informacion');
-        const APPEND_BUTTON = $('body').prepend(CREATE_BUTTON);
+        $(CREATE_BUTTON).addClass('infoButton')
+        $(CREATE_BUTTON).html('Informacion');
+        $('body').prepend(CREATE_BUTTON);
     }
     showSideBar(){
         $('.infoButton').click(() => {

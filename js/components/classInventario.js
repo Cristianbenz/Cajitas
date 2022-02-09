@@ -21,7 +21,7 @@ class Inventario {
     });
   }
   invetarioEvents() {
-    const TARGETS = $(this.actionContainer).click((event) => {
+    $(this.actionContainer).click((event) => {
       if (event.target.id === "sellAll") {
         this.venderInventario();
       }
@@ -38,10 +38,7 @@ class Inventario {
     points += PRECIO_TOTAL;
     const INVENTARIO_POINTS = new Puntos();
     INVENTARIO_POINTS.actualizarPuntos(points);
-    const BORRAR_INVENTARIO = sessionStorage.setItem(
-      "inventario",
-      JSON.stringify([])
-    );
+    sessionStorage.setItem("inventario", JSON.stringify([]));
     $(this.contendedor).html([]);
   }
   withdrawNotification() {
@@ -53,10 +50,7 @@ class Inventario {
       NOTIFICATIONS.showToast("❌ Debes completar el formulario completamente");
     } else {
       $(this.contendedor).html([]);
-      const BORRAR_INVENTARIO = sessionStorage.setItem(
-        "inventario",
-        JSON.stringify([])
-      );
+      sessionStorage.setItem("inventario", JSON.stringify([]));
       NOTIFICATIONS.showToast(
         `✅ Hola ${INFO_ARR.name} te contactamos a ${INFO_ARR.mail}`
       );

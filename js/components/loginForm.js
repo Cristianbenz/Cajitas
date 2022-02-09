@@ -1,7 +1,7 @@
 class Usuario {
     constructor() {
         this.form = document.querySelector('#loginForm');
-        this.submit();
+        this.addEvent();
 
     }
     ingreso(event) {
@@ -9,8 +9,8 @@ class Usuario {
         const AGE = $('#age').val();
         if (USERNAME != '' && AGE >= 18) {
             NOTIFICATIONS.showToast('Ingreso Exitoso!');
-            const GUARDAR_ACCESO = sessionStorage.setItem('acceso', true);
-            const GUARDAR_USERNAME = sessionStorage.setItem('username', USERNAME);
+            sessionStorage.setItem('acceso', true);
+            sessionStorage.setItem('username', USERNAME);
             setTimeout(() => {
                 window.location.href = "index.html";
             }, 1500)
@@ -26,12 +26,11 @@ class Usuario {
             $('#ageError').hide();
         }
     }
-    submit() {
-        const SUBMIT = $(this.form).submit((event) => {
+    addEvent() {
+        $(this.form).submit((event) => {
             event.preventDefault();
             this.ingreso();
         });
     }
 
 }
-const POST_URL = '/data/username.json';

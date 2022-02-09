@@ -44,7 +44,7 @@ class Case {
   }
   button(nodo) {
     const BUTTON_NODO = document.createElement("button");
-    const BUTTON_TEXT = (BUTTON_NODO.innerHTML = `GIRAR`);
+    const BUTTON_TEXT = (BUTTON_NODO.innerHTML = `GIRAR - $${this.price}`);
     const BUTTON_CLASSES = BUTTON_NODO.classList.add(
       "cajas__boton--width",
       "cajas__boton--position",
@@ -64,40 +64,23 @@ class Case {
       this.descuentoDePuntos();
       const AZAR = (probabilidad) => Math.round(Math.random() * probabilidad);
       const ABRIENDO = NOTIFICATIONS.showToast(`Abriendo ${this.name}...`);
-      const JUEGO = setTimeout(() => {
-      }, 250);
+      const JUEGO = setTimeout(() => {}, 250);
       if (AZAR(1000) == 1) {
-        this.rewardTargetAnimation(this.premios[4]);
+        this.caseAnimation(this.premios[4]);
       } else if (AZAR(100) == 1) {
-        this.rewardTargetAnimation(this.premios[3]);
+        this.caseAnimation(this.premios[3]);
       } else if (AZAR(10) == 1) {
-        this.rewardTargetAnimation(this.premios[2]);
+        this.caseAnimation(this.premios[2]);
       } else if (AZAR(10) > 1 && AZAR(10) < 7) {
-        this.rewardTargetAnimation(this.premios[1]);
+        this.caseAnimation(this.premios[1]);
       } else {
-        this.rewardTargetAnimation(this.premios[0]);
+        this.caseAnimation(this.premios[0]);
       }
     } else {
       const NO_POINTS = NOTIFICATIONS.showToast("Puntos insuficientes");
     }
   }
-  caseAnimation() {
-    const wheel = $(".cajas__inner--layout");
-    wheel.css({
-      "transition-duration": "500ms",
-      transform: "translateX(-" + 33.33 + "%)",
-    });
-
-    setTimeout(function () {
-      wheel.css({
-        "transition-duration": "",
-      });
-
-      wheel.css("transform", "translateX(" + 0 + "%)");
-    }, 950);
-  }
-
-  rewardTargetAnimation(target) {
+  caseAnimation(target) {
     const wheel = $(".cajas__inner--layout");
     const POSITION = this.premios.indexOf(target);
     const LANDING_POSITION = POSITION * 6 + 17.5;
@@ -107,15 +90,14 @@ class Case {
       transform: "translateX(-" + LANDING_POSITION + "%)",
     });
 
-    setTimeout( () => {
+    setTimeout(() => {
       wheel.css({
-        "transition-duration": ""
+        "transition-duration": "",
       });
 
       wheel.css("transform", "translateX(" + 0 + "%)");
-      
     }, 1500);
-    this.objetoPopup(target)
+    this.objetoPopup(target);
   }
 
   descuentoDePuntos() {
@@ -127,7 +109,7 @@ class Case {
     setTimeout(() => {
       const PREMIO_POPUP = document.createElement("section");
       const POPUP_HTML = this.nodo.append(PREMIO_POPUP);
-      const POPUP_CLASS = $(PREMIO_POPUP).addClass(
+      $(PREMIO_POPUP).addClass(
         "popup--size popup--position popup--layout popup--bg popup--show"
       );
       const POPUP_CONTENT = (PREMIO_POPUP.innerHTML = `
@@ -143,12 +125,10 @@ class Case {
               
           `);
       this.popupEvent(articulo);
-      
     }, 1000);
   }
   popupEvent(articulo) {
-    const POPUP_NODE = $(".popup--size");
-    const DECISION = $(POPUP_NODE).click((event) => {
+    $(".popup--size").click((event) => {
       if (event.target.id == "venderArt") {
         this.venderoObjetoGanado(articulo);
       } else if (event.target.id == "guardarArt") {
@@ -161,19 +141,14 @@ class Case {
     points += objeto.price;
     const ADD_POINTS = new Puntos();
     ADD_POINTS.actualizarPuntos(points);
-    const POPUP_NODE = $(".popup--show");
-    $(POPUP_NODE).remove();
+    $(".popup--show").remove();
   }
   guardarObjetoGanado(articulo) {
-    const TO_INVENTARIO = inventario.push(articulo);
+    inventario.push(articulo);
     NOTIFICATIONS.showToast(
       `Ahora tu ${articulo.name.toLowerCase()} esta en tu inventario`
     );
-    const GUARDAR_INVENTARIO = sessionStorage.setItem(
-      "inventario",
-      JSON.stringify(inventario)
-    );
-    const POPUP_NODE = document.querySelector(".popup--show");
-    $(POPUP_NODE).remove();
+    sessionStorage.setItem("inventario", JSON.stringify(inventario));
+    document.querySelector(".popup--show").remove();
   }
 }
